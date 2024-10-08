@@ -36,7 +36,7 @@ case "${TARGET_BUILD_MODE}" in
 esac
 
 # Parse active devices from Status.md
-DEVICES=$(awk '/**State: Active**/,/**Codename:/ {if ($0 ~ /**Codename:/) print substr($2, 1, length($2)-2)}' Status.md)
+DEVICES=lmi
 
 # Build UEFI for active Devices
 for Device in $DEVICES; do
