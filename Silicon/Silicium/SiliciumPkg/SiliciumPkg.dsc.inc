@@ -48,7 +48,7 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiProduceMemoryTypeInformationHob|TRUE
 
 [PcdsFixedAtBuild]
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"3.0"
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"3.0.1"
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Project Silicium"
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareRevision|0x01231229
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemId|"SILICI"
@@ -192,7 +192,7 @@
 !if $(TARGET) == RELEASE
   SerialPortLib|MdePkg/Library/BaseSerialPortLibNull/BaseSerialPortLibNull.inf
 !else
-  SerialPortLib|SiliciumPkg/Library/SerialPortLib/SerialPortLib.inf
+  SerialPortLib|SiliciumPkg/Library/FrameBufferSerialPortLib/FrameBufferSerialPortLib.inf
 !endif
 
   PlatformThemeLib|SiliciumPkg/Library/PlatformThemeLib/PlatformThemeLib.inf
@@ -301,6 +301,12 @@
   VariablePolicyLib|MdeModulePkg/Library/VariablePolicyLib/VariablePolicyLibRuntimeDxe.inf
 
 [Components]
+  # PrePi
+  SiliciumPkg/PrePi/PrePi.inf {
+    <LibraryClasses>
+      NULL|MdeModulePkg/Library/LzmaCustomDecompressLib/LzmaCustomDecompressLib.inf
+  }
+
   # DXE Core
   MdeModulePkg/Core/Dxe/DxeMain.inf {
     <LibraryClasses>
