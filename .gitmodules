@@ -3,7 +3,7 @@
 	url = https://github.com/Project-Silicium/Device-Binaries.git
 [submodule "Silicium-ACPI"]
 	path = Silicium-ACPI
-	url = https://github.com/Project-Silicium/Silicium-ACPI.git
+	url = https://github.com/yuweiyuan8/Silicium-ACPI.git
 [submodule "Mu_Basecore"]
 	path = Mu_Basecore
 	url = https://github.com/microsoft/mu_basecore.git
