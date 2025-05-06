@@ -10,20 +10,20 @@
   ClockSpeedUpDxe.c
 
 [Packages]
-  ArmPlatformPkg/ArmPlatformPkg.dec
   MdePkg/MdePkg.dec
+  ArmPlatformPkg/ArmPlatformPkg.dec
+  SiliciumPkg/SiliciumPkg.dec
   QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
   PcdLib
-  DebugLib
   UefiDriverEntryPoint
   UefiBootServicesTableLib
+  DebugLib
 
 [FixedPcd]
   gArmPlatformTokenSpaceGuid.PcdClusterCount
-  gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache
-  gQcomPkgTokenSpaceGuid.PcdMaxFreqSupported
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize
 
 [Protocols]
   gEfiClockProtocolGuid

@@ -56,11 +56,23 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000        
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi Inc"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Poco F3"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi Inc"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"alioth"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Poco F3"
+!if $(DEVICE_MODEL) == 0
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Poco F3"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Poco_F3_alioth"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Poco F3"
+!elseif $(DEVICE_MODEL) == 1
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi K40"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_K40_alioth"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Redmi K40"
+!elseif $(DEVICE_MODEL) == 2
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Mi 11X"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Mi_11X_alioth"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Mi 11X"
+!else
+!error "Invalid Model Type! 0, 1 or 2 are Valid Model Types."
+!endif
 
   # Simple FrameBuffer
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
@@ -77,7 +89,7 @@
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
   
   # USB Controller
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|FALSE
+  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
 [PcdsDynamicDefault]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080

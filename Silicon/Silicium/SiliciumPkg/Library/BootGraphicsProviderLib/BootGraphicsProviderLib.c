@@ -1,11 +1,5 @@
 /**
-  This BootGraphicsProviderLib is Intended to Abstract the Source of the
-  BMP Files from the Caller.
-
-  This Instance uses Defined PCDs and RAW FFS Files.
-
   Copyright (C) Microsoft Corporation. All rights reserved.
-
   SPDX-License-Identifier: BSD-2-Clause-Patent
 **/
 
@@ -41,8 +35,8 @@ GetBootGraphic (
       g = PcdGetPtr (PcdNoBootOSFile);
       break;
     
-    case BG_MSD_WARNING:
-      g = PcdGetPtr (PcdMsdWarningFile);
+    case BG_MSD_SELECT_LUN:
+      g = PcdGetPtr (PcdMsdSelectLunFile);
       break;
     
     case BG_MSD_CONNECTED:
@@ -53,8 +47,8 @@ GetBootGraphic (
       g = PcdGetPtr (PcdMsdDisconnectedFile);
       break;
 
-    case BG_MSD_ERROR:
-      g = PcdGetPtr (PcdMsdErrorFile);
+    case BG_MSD_UNKNOWN_STATE:
+      g = PcdGetPtr (PcdMsdUnknownStateFile);
       break;
 
     default:

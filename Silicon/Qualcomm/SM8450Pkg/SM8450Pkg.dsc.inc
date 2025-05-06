@@ -23,9 +23,8 @@
   HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA = 1
   HAS_PSCI_MEMPROTECT_FAILING_ERRATA         = 0
 
-# TODO: Replace this with working one
-#[BuildOptions]
-#  *_*_AARCH64_CC_FLAGS = -march=armv9-a+crypto+rcpc
+[BuildOptions]
+  *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
   # Timer
@@ -45,20 +44,31 @@
 
   # SmBios
 !if $(SOC_TYPE) == 0
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Gen 1 @ 3.00 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8450"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Gen 1"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM8450"
 !elseif $(SOC_TYPE) == 1
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8+ Gen 1 @ 3.20 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8475"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8+ Gen 1"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM8475"
 !endif
 
   # CPU
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|3
-  gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|TRUE
+!if $(SOC_TYPE) == 1
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3200
+!else
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3000
+!endif
 
-  # CPU Max Freq
-  gQcomPkgTokenSpaceGuid.PcdMaxFreqSupported|TRUE
+  # CPU Cache
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x20
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x400
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x1800
+
+  # Memory Speed & Type
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|3200
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|35
 
   # Platform Pei HOBs
   gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
@@ -73,8 +83,5 @@
   HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   SoCPlatformLib|SM8450Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
-
-[Components]
-  SM8450Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
 !include QcomPkg/QcomPkg.dsc.inc

@@ -44,23 +44,34 @@
 
   # SmBios
 !if $(SOC_TYPE) == 0
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 730 @ 2.21 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM7150-AA"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 730"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM7150-AA"
 !elseif $(SOC_TYPE) == 1
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 730G @ 2.21 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM7150-AB"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 730G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM7150-AB"
 !elseif $(SOC_TYPE) == 2
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 732G @ 2.30 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM7150-AC"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 732G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM7150-AC"
 !endif
 
   # CPU
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
-  gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|TRUE
+!if $(SOC_TYPE) == 2
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2300
+!else
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2210
+!endif
 
-  # CPU Max Freq
-  gQcomPkgTokenSpaceGuid.PcdMaxFreqSupported|TRUE
+  # CPU Cache
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x40
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x40
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x100
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x400
+
+  # Memory Speed & Type
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|1866
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30
 
   # Platform Pei HOBs
   gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
@@ -75,8 +86,5 @@
   HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   SoCPlatformLib|SM7150Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
-
-[Components]
-  SM7150Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
 !include QcomPkg/QcomPkg.dsc.inc

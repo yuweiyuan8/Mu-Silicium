@@ -59,7 +59,7 @@ FV = FVMAIN_COMPACT
 ################################################################################
 
 [FV.FvMain]
-FvNameGuid         = 631008B0-B2D1-410A-8B49-2C5C4D8ECC7E
+FvNameGuid         = E51BAA54-9110-4792-959D-96CE8AF22D63
 BlockSize          = 0x1000
 NumBlocks          = 0        # This FV gets compressed so make it just big enough
 FvAlignment        = 8        # FV alignment and FV attributes setting.
@@ -83,25 +83,24 @@ READ_LOCK_STATUS   = TRUE
   !include Include/DXE.inc
   !include Include/RAW.inc
 
-  INF EmbeddedPkg/Drivers/VirtualKeyboardDxe/VirtualKeyboardDxe.inf
-
-  # BDS
+  # SmBios
   INF MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
-  INF MdeModulePkg/Universal/SetupBrowserDxe/SetupBrowserDxe.inf
-  INF MdeModulePkg/Universal/DriverHealthManagerDxe/DriverHealthManagerDxe.inf
+  INF QcomPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
-  # ACPI and SMBIOS
+  # ACPI
   INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
   INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
-  INF SM6125Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
-	
-  # USB Power	
-  INF SM6125Pkg/Drivers/UsbPwrEnablerDxe/UsbPwrEnablerDxe.inf
-
-  # ACPI Tables
   !include Include/ACPI.inc
 
-  INF DfciPkg/IdentityAndAuthManager/IdentityAndAuthManagerDxe.inf
+  # Device Tree
+  #INF EmbeddedPkg/Drivers/DtPlatformDxe/DtPlatformDxe.inf
+  #FILE FREEFORM = 25462CDA-221F-47DF-AC1D-259CFAA4E326 {
+  #  SECTION RAW = ginkgoPkg/FdtBlob/sm6125-xiaomi-ginkgo.dtb
+  #  SECTION UI = "DeviceTreeBlob"
+  #}
+
+  # USB Power	
+  INF SM6125Pkg/Drivers/UsbPwrEnablerDxe/UsbPwrEnablerDxe.inf
 
   !include QcomPkg/Extra.fdf.inc
 
