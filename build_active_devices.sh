@@ -51,6 +51,6 @@ for Device in $DEVICES; do
 		done
 	else
 		# Build Main Device
-		bash ./build_uefi.sh -d $Device -r $TARGET_BUILD_MODE -c || exit $?
+		bash ./build_uefi.sh -d pipa -r $TARGET_BUILD_MODE -c || exit $?
 	fi
 done
