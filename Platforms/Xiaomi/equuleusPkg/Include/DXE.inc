@@ -26,7 +26,7 @@
   INF Binaries/equuleus/QcomPkg/Drivers/FontDxe/FontDxe.inf
   INF Binaries/equuleus/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/equuleus/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
@@ -50,9 +50,6 @@
 
   INF Binaries/equuleus/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/equuleus/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
-
   INF Binaries/equuleus/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/equuleus/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/equuleus/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
@@ -78,6 +75,8 @@
   INF Binaries/equuleus/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/equuleus/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/equuleus/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+
   INF Binaries/equuleus/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf

@@ -25,7 +25,7 @@
   INF Binaries/vili/QcomPkg/Drivers/FontDxe/FontDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/vili/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
@@ -49,9 +49,6 @@
   INF Binaries/vili/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
-
   INF Binaries/vili/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
 
@@ -92,6 +89,8 @@
   INF Binaries/vili/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+
   INF Binaries/vili/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/vili/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/XhciDxe/XhciDxe.inf

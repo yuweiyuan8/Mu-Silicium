@@ -27,7 +27,7 @@
   INF Binaries/gts8/QcomPkg/Drivers/FontDxe/FontDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/gts8/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
@@ -55,9 +55,6 @@
   INF Binaries/gts8/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
-
   INF Binaries/gts8/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
@@ -90,6 +87,8 @@
   INF Binaries/gts8/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+
   INF Binaries/gts8/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
@@ -103,7 +102,7 @@
   INF Binaries/gts8/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/UsbInitDxe/UsbInitDxe.inf
-  INF Binaries/gts8/QcomPkg/Drivers/CipherDxe/CipherDxe.inf
+  INF Binaries/gts8/QcomPkg/Drivers/UCDxe/UCDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/RNGDxe/RngDxe.inf
   #INF Binaries/gts8/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf

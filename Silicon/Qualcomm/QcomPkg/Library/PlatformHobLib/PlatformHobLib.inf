@@ -24,8 +24,9 @@
 
 [LibraryClasses]
   PcdLib
+  DebugLib
   PlatformHobLib
-  DeviceConfigurationMapLib
+  ConfigurationMapLib
   ConfigurationMapHelperLib
   MemoryMapHelperLib
   SerialPortLib
@@ -35,10 +36,10 @@
   gQcomPkgTokenSpaceGuid.PcdPlatformType
   gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob
   gQcomPkgTokenSpaceGuid.PcdEnableShimHob
-  gQcomPkgTokenSpaceGuid.PcdEnableFvDecompressHob
   gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob
+  gQcomPkgTokenSpaceGuid.PcdFvDecompressAddr
   gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr
-  gQcomPkgTokenSpaceGuid.PcdDTBExtensionAddr
+  gQcomPkgTokenSpaceGuid.PcdDtbExtensionAddr
 
 [Guids]
   gEfiInfoBlkHobGuid

@@ -13,7 +13,7 @@ APRIORI DXE {
 
   # Next, install cpu protocol and enable the interrupt controller
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
 
   # Core Drivers
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
@@ -37,9 +37,6 @@ APRIORI DXE {
   INF Binaries/gts8/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
-
   INF Binaries/gts8/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/gts8/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
@@ -63,6 +60,8 @@ APRIORI DXE {
   INF Binaries/gts8/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
   INF Binaries/gts8/QcomPkg/Drivers/SamsungDxe/SecEnvDxe/SecEnvDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+
   INF Binaries/gts8/QcomPkg/Drivers/SamsungDxe/BoardInfoDxe/BoardInfoDxe.inf
 
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
@@ -99,10 +98,7 @@ APRIORI DXE {
 
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
-  # PmicGlinkDxe
   INF Binaries/gts8/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
-  # QcomChargerDxeLA
-  # ChargerExDxe
   INF Binaries/gts8/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/XhciDxe/XhciDxe.inf

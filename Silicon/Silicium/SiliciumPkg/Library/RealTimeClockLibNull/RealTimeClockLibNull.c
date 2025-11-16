@@ -40,7 +40,7 @@ LibGetTime (
   // Get Timer Freq
   Freq = ArmGenericTimerGetTimerFreq ();
   if (!Freq) {
-    Freq = PcdGet32 (PcdArmArchTimerFreqInHz);
+    Freq = PcdGet64 (PcdTimerFreqOverwrite);
     ASSERT (Freq);
   }
 
@@ -104,7 +104,7 @@ LibGetWakeupTime (
 EFI_STATUS
 EFIAPI
 LibSetWakeupTime (
-  IN BOOLEAN    Enabled,
+  IN  BOOLEAN   Enabled,
   OUT EFI_TIME *Time)
 {
   return EFI_UNSUPPORTED;

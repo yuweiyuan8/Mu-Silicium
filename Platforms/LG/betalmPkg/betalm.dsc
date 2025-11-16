@@ -24,7 +24,6 @@
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = betalmPkg/betalm.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
-  HAS_BUILD_IN_KEYBOARD          = 0
 
   #
   # 0 = SM8150
@@ -33,64 +32,44 @@
   #
   SOC_TYPE                       = 0
 
-[BuildOptions]
-  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
-
-[LibraryClasses]
-  DeviceMemoryMapLib|betalmPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
-  DeviceConfigurationMapLib|betalmPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
-  DevicePrePiLib|betalmPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
-
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
-
-  # Device Maintainer
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"Daniel224455"
-
-  # CPU Vector Address
-  gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x9FF8C000
 
   # UEFI Stack Addresses
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FFB0000
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00020000
 
+  # Device GUID
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x31, 0x37, 0x95, 0x31, 0x10, 0x50, 0x84, 0x45, 0x8F, 0x53, 0x31, 0x1E, 0x70, 0x24, 0xE5, 0x8A }
+
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"LG Electronics Inc."
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"LG"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"G8s"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"betalm"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"G8s_betalm"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"G8s"
 
-  # Simple FrameBuffer
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2248
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  # Simple Frame Buffer
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferWidth|1080
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferHeight|2248
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|32
 
   # Platform Pei
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0x180000000
+  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xC4800000
 
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|TRUE
-  
-  # USB Controller
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
   # Storage
   gQcomPkgTokenSpaceGuid.PcdStorageIsUfs3|FALSE
 
-[PcdsDynamicDefault]
-  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080
-  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2248
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1080
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|2248
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|135
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|118
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|135
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|118
-  
-!include SM8150Pkg/SM8150Pkg.dsc.inc
+[LibraryClasses]
+  MemoryMapLib|betalmPkg/Library/MemoryMapLib/MemoryMapLib.inf
+  ConfigurationMapLib|betalmPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
+
+!include HanaPkg/HanaPkg.dsc.inc

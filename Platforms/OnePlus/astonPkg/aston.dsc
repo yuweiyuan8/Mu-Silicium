@@ -24,74 +24,59 @@
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = astonPkg/aston.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 1
-  HAS_BUILD_IN_KEYBOARD          = 0
 
-[BuildOptions]
-  *_*_*_CC_FLAGS = -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
-
-[LibraryClasses]
-  DeviceMemoryMapLib|astonPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
-  DeviceConfigurationMapLib|astonPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
-  DevicePrePiLib|astonPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
+  #
+  # 0 = SM8550-AB
+  # 1 = SM8550-AC
+  #
+  SOC_TYPE                       = 0
 
 [PcdsFixedAtBuild]
   # DDR Start Address
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000  
-
-  # Device Maintainer
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"Shandorman"
-
-  # CPU Vector Address
-  gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0xA7600000
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # UEFI Stack Addresses
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0xA760D000
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000  
+
+  # Device GUID
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x2B, 0x8D, 0xA5, 0x5C, 0xC8, 0x99, 0xDE, 0x40, 0xA7, 0xA5, 0x44, 0xC5, 0xDA, 0xAE, 0x24, 0xBD }
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"OnePlus"
 !if $(DEVICE_MODEL) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Ace 3"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"aston"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Ace 3"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Ace 3"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"PJE110"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"23801"
 !elseif $(DEVICE_MODEL) == 1
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"12R"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"aston"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"12R"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"12R"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"CPH2585"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"23861"
 !else
 !error "Invalid Model Type! 0 or 1 are Valid Model Types."
 !endif
 
-  # Simple FrameBuffer
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1264
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2780
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  # Simple Frame Buffer
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferWidth|1264
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferHeight|2780
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|32
 
   # Platform Pei
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
-  gQcomPkgTokenSpaceGuid.PcdDTBExtensionAddr|0xA703A0C8
+  gQcomPkgTokenSpaceGuid.PcdDtbExtensionAddr|0xA703A0C8
   gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0xA703A950
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0x880000000 
+  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xE1200000
 
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
-  
-  # USB Controller
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
-[PcdsDynamicDefault]
-  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1264
-  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2780
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1264
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|2780
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|158
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|146
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|158
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|146
+[LibraryClasses]
+  MemoryMapLib|astonPkg/Library/MemoryMapLib/MemoryMapLib.inf
+  ConfigurationMapLib|astonPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
-!include SM8550Pkg/SM8550Pkg.dsc.inc
+!include KailuaPkg/KailuaPkg.dsc.inc

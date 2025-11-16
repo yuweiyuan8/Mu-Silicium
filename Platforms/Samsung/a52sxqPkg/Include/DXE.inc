@@ -23,7 +23,7 @@
   INF Binaries/a52sxq/QcomPkg/Drivers/FontDxe/FontDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/a52sxq/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
@@ -39,9 +39,6 @@
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
   INF Binaries/a52sxq/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
-
   INF Binaries/a52sxq/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
@@ -76,7 +73,6 @@
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/a52sxq/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
-  INF QcomPkg/Drivers/DisplayReEnablerDxe/DisplayReEnablerDxe.inf
 !else
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
@@ -89,6 +85,8 @@
   INF Binaries/a52sxq/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+
   INF Binaries/a52sxq/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/XhciDxe/XhciDxe.inf

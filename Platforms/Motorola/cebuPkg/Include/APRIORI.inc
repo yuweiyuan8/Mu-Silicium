@@ -11,7 +11,7 @@ APRIORI DXE {
 
   # Next, install cpu protocol and enable the interrupt controller
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
 
   # Core Drivers
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
@@ -32,9 +32,6 @@ APRIORI DXE {
   INF Binaries/cebu/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
   INF Binaries/cebu/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/cebu/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
-
   INF Binaries/cebu/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/cebu/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
 
@@ -42,7 +39,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
-  # SdccDxe_SDBoot
   INF Binaries/cebu/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/cebu/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
 
@@ -98,12 +94,12 @@ APRIORI DXE {
   INF Binaries/cebu/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/cebu/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/cebu/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
-  # MpPowerDxe
   INF Binaries/cebu/QcomPkg/Drivers/HashDxe/HashDxe.inf
   INF Binaries/cebu/QcomPkg/Drivers/CipherDxe/CipherDxe.inf
   INF Binaries/cebu/QcomPkg/Drivers/MacDxe/MacDxe.inf
   INF Binaries/cebu/QcomPkg/SocPkg/KamortaPkg/Drivers/RNGDxe/RngDxe.inf
   INF Binaries/cebu/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
 
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
   INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf

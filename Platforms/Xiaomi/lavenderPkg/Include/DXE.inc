@@ -27,7 +27,7 @@
   INF Binaries/lavender/QcomPkg/Drivers/FontDxe/FontDxe.inf
   INF Binaries/lavender/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/lavender/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
@@ -46,7 +46,6 @@
 
   INF Binaries/lavender/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/lavender/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
   INF Binaries/lavender/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/lavender/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
   INF Binaries/lavender/QcomPkg/Drivers/SPIDxe/SPIDxe.inf

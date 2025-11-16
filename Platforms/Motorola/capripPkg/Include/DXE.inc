@@ -34,7 +34,7 @@
   INF Binaries/caprip/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/QcomMpmTimerDxe/QcomMpmTimerDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/caprip/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
@@ -54,9 +54,6 @@
   INF Binaries/caprip/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
-
   INF Binaries/caprip/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
@@ -69,7 +66,6 @@
   INF Binaries/caprip/MbmPkg/Core/Drivers/MotBootFlagsDxe/MotBootFlagsDxe.inf
   INF Binaries/caprip/MbmPkg/Core/Drivers/MotStorageDxe/MotStorageDxe.inf
   INF Binaries/caprip/MbmPkg/Core/Drivers/BacklightDxe/BacklightDxe.inf
-
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/caprip/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
@@ -86,6 +82,8 @@
   INF Binaries/caprip/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+
   INF Binaries/caprip/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf

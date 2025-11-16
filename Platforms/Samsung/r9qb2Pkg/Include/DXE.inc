@@ -1,7 +1,7 @@
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
 
-  # INF Binaries/r9qb2/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
+  INF Binaries/r9qb2/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
 
   INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
   INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
@@ -25,7 +25,7 @@
   INF Binaries/r9qb2/QcomPkg/Drivers/FontDxe/FontDxe.inf
   INF Binaries/r9qb2/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/r9qb2/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
@@ -48,9 +48,6 @@
   INF Binaries/r9qb2/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/r9qb2/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/r9qb2/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
-
   INF Binaries/r9qb2/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/r9qb2/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
 
@@ -88,6 +85,8 @@
   INF Binaries/r9qb2/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/r9qb2/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/r9qb2/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+
   INF Binaries/r9qb2/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/r9qb2/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/r9qb2/QcomPkg/Drivers/XhciDxe/XhciDxe.inf

@@ -25,7 +25,7 @@
   INF Binaries/spacewar/QcomPkg/Drivers/FontDxe/FontDxe.inf
   INF Binaries/spacewar/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/spacewar/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
@@ -44,9 +44,6 @@
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
   INF Binaries/spacewar/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
-
   INF Binaries/spacewar/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/spacewar/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
   INF Binaries/spacewar/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
@@ -99,6 +96,8 @@
   INF Binaries/spacewar/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/spacewar/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/spacewar/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+
   INF Binaries/spacewar/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/spacewar/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/spacewar/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
@@ -119,4 +118,3 @@
   INF Binaries/spacewar/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
   INF Binaries/spacewar/QcomPkg/Drivers/ParserDxe/ParserDxe.inf
   INF Binaries/spacewar/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf
-

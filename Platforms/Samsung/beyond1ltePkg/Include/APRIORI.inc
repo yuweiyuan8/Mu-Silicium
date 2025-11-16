@@ -9,7 +9,7 @@ APRIORI DXE {
 
   # Next, install cpu protocol and enable the interrupt controller
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
 
   # Core Drivers
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
@@ -20,6 +20,7 @@ APRIORI DXE {
   INF SamsungPkg/Drivers/DdrInfoDxe/DdrInfoDxe.inf
   INF SamsungPkg/Drivers/GpioDxe/GpioDxe.inf
   INF SamsungPkg/Drivers/SpeedyDxe/SpeedyDxe.inf
+  INF SamsungPkg/Drivers/PmicDxe/S2mps1922Dxe.inf
 
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
   INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf

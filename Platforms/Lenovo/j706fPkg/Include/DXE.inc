@@ -30,7 +30,7 @@
   INF Binaries/j706f/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
   INF Binaries/j706f/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/j706f/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
@@ -83,6 +83,8 @@
   INF Binaries/j706f/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/j706f/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/j706f/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+
   INF Binaries/j706f/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf

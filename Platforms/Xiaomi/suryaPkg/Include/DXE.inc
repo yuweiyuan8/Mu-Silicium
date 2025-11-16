@@ -28,7 +28,7 @@
   INF Binaries/surya/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/surya/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
@@ -52,9 +52,6 @@
 
   INF Binaries/surya/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
-
   INF Binaries/surya/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/surya/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
@@ -62,12 +59,13 @@
   INF Binaries/surya/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
+
   INF Binaries/surya/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
-#  INF Binaries/surya/QcomPkg/Drivers/ASN1X509Dxe/ASN1X509Dxe.inf
   INF Binaries/surya/QcomPkg/Drivers/VibratorDxe/VibratorDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/surya/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
+  INF QcomPkg/Drivers/DisplayReEnablerDxe/DisplayReEnablerDxe.inf
 !else
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
@@ -82,6 +80,8 @@
   INF Binaries/surya/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+
   INF Binaries/surya/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
   INF Binaries/generic/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf

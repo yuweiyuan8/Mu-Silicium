@@ -24,70 +24,44 @@
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = gts8Pkg/gts8.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
-  HAS_BUILD_IN_KEYBOARD          = 0
-
-  #
-  # 0 = SM8450
-  # 1 = SM8475
-  #
-  SOC_TYPE                       = 0
-
-[BuildOptions]
-  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
-
-[LibraryClasses]
-  DeviceMemoryMapLib|gts8Pkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
-  DeviceConfigurationMapLib|gts8Pkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
-  DevicePrePiLib|gts8Pkg/Library/DevicePrePiLib/DevicePrePiLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
 [PcdsFixedAtBuild]
   # DDR Start Address
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000  
-
-  # Device Maintainer
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"No Maintainer"
-
-  # CPU Vector Address
-  gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0xA7600000
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # UEFI Stack Addresses
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0xA760D000
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000  
 
+  # Device GUID
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0xC6, 0x03, 0x9F, 0x53, 0xF9, 0x9E, 0x7D, 0x4B, 0xB7, 0xB8, 0x45, 0x5A, 0xBE, 0x2B, 0xCC, 0x2E }
+
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Samsung Electronics"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Samsung"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy Tab S8 5G"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"X706B"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_Tab_S8_5G_X706B"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"gts8"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_Tab_S8_5G_gts8p"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy Tab S8 5G"
 
-  # Simple FrameBuffer
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1600
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2560
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  # Simple Frame Buffer
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferWidth|1600
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferHeight|2560
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|32
 
   # Platform Pei
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
-  gQcomPkgTokenSpaceGuid.PcdDTBExtensionAddr|0xA703B0C8
+  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0xA703B920
+  gQcomPkgTokenSpaceGuid.PcdDtbExtensionAddr|0xA703B0C8
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xFFC00000
+  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xFFC00000
 
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|TRUE
-  
-  # USB Controller
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
-[PcdsDynamicDefault]
-  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1600
-  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2560
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1600
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|2560
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|200
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|134
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|200
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|134
+[LibraryClasses]
+  MemoryMapLib|gts8Pkg/Library/MemoryMapLib/MemoryMapLib.inf
+  ConfigurationMapLib|gts8Pkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
-!include SM8450Pkg/SM8450Pkg.dsc.inc
+!include WaipioPkg/WaipioPkg.dsc.inc

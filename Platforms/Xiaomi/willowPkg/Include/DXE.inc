@@ -29,7 +29,7 @@
   INF Binaries/willow/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/willow/QcomPkg/Drivers/QcomMpmTimerDxe/QcomMpmTimerDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/willow/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
@@ -48,9 +48,6 @@
 
   INF Binaries/willow/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/willow/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
-
   INF Binaries/willow/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/willow/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/willow/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
@@ -75,6 +72,8 @@
   INF Binaries/willow/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
   INF Binaries/willow/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/willow/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+
   INF Binaries/willow/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
   INF Binaries/generic/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf

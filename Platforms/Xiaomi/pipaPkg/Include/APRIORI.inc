@@ -11,7 +11,7 @@ APRIORI DXE {
 
   # Next, install cpu protocol and enable the interrupt controller
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
 
   # Core Drivers
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
@@ -34,9 +34,6 @@ APRIORI DXE {
   INF Binaries/pipa/QcomPkg/Drivers/PdcDxe/PdcDxe.inf
   INF Binaries/pipa/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/pipa/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
-
   INF Binaries/pipa/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/pipa/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/pipa/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
@@ -58,12 +55,12 @@ APRIORI DXE {
   INF Binaries/pipa/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
 
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
-  
-  # Only used for DisplayDxe for Qualcomm Demura
-  #INF Binaries/pipa/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
+  #INF Binaries/pipa/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
   INF Binaries/pipa/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/pipa/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+
   INF Binaries/pipa/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
   INF Binaries/pipa/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
 

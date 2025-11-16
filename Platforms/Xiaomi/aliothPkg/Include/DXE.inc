@@ -28,7 +28,7 @@
   INF Binaries/alioth/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/alioth/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
@@ -54,9 +54,6 @@
 
   INF Binaries/alioth/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
-
   INF Binaries/alioth/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
@@ -67,8 +64,6 @@
   INF Binaries/alioth/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
-
-  # Only used for DisplayDxe for Qualcomm Demura
   INF Binaries/alioth/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/VibratorDxe/VibratorDxe.inf
 
@@ -88,6 +83,8 @@
   INF Binaries/alioth/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+
   INF Binaries/alioth/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/XhciDxe/XhciDxe.inf

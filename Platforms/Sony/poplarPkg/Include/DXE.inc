@@ -27,7 +27,7 @@
   INF Binaries/poplar/QcomPkg/Drivers/FontDxe/FontDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/poplar/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
@@ -46,9 +46,6 @@
 
   INF Binaries/poplar/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
-
   INF Binaries/poplar/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/SPIDxe/SPIDxe.inf

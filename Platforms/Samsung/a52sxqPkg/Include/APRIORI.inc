@@ -11,7 +11,7 @@ APRIORI DXE {
 
   # Next, install cpu protocol and enable the interrupt controller
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
 
   # Core Drivers
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
@@ -33,9 +33,6 @@ APRIORI DXE {
   INF Binaries/a52sxq/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
-
   INF Binaries/a52sxq/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
@@ -62,6 +59,8 @@ APRIORI DXE {
 
   INF Binaries/a52sxq/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+
   INF Binaries/a52sxq/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/SamsungDxe/BoardInfoDxe/BoardInfoDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/SamsungDxe/CcicDxe/CcicDxe.inf
@@ -102,18 +101,18 @@ APRIORI DXE {
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
-  INF Binaries/a52sxq/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
+  INF Binaries/a52sxq/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
+  INF Binaries/a52sxq/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
 
   INF Binaries/a52sxq/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
-  !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/a52sxq/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
-  INF QcomPkg/Drivers/DisplayReEnablerDxe/DisplayReEnablerDxe.inf
-  !endif
+!endif
   INF Binaries/a52sxq/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/UCDxe/UCDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/RNGDxe/RngDxe.inf

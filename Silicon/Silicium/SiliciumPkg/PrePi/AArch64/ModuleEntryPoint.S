@@ -4,7 +4,7 @@
 //  SPDX-License-Identifier: BSD-2-Clause-Patent
 //
 
-#include <AsmMacroIoLibV8.h>
+#include <AsmMacroLib.h>
 
 .set CTRL_SPAN_BIT, (1 << 23)
 
@@ -43,24 +43,6 @@ SetSVCMode:
   orr  x0, x0, #CTRL_SPAN_BIT
   msr  sctlr_el1, x0
 
-SetupExceptionVector:
-  // Get Exception Vector Address
-  ldr  x0, =FixedPcdGet64(PcdCpuVectorBaseAddress)
-
-  // Write Vector Table Address
-  bl   ArmWriteVBar
-
-  // Setup Exception Loop
-  ldr  x1, NeverReturn
-  add  x2, x0, #0x800
-  mov  x3, x0
-
-FillVectors:
-  // Fill every 16 Bytes
-  stp  x1, x1, [x3], #16
-  cmp  x3, x2
-  b.lt FillVectors
-
 UntrapVFP:
   // Rewrite CPACR_EL1
   mrs  x0, cpacr_el1
@@ -72,8 +54,8 @@ UntrapVFP:
 
 SetupCoreStack:
   // Get Stack Base & Size
-  ldr  x0, =FixedPcdGet32(PcdPrePiStackBase)
-  ldr  x1, =FixedPcdGet32(PcdPrePiStackSize)
+  ldr  x0, =FixedPcdGet32 (PcdPrePiStackBase)
+  ldr  x1, =FixedPcdGet32 (PcdPrePiStackSize)
 
   // Preapre Stack Clear
   add  x2, x0, x1
@@ -96,12 +78,12 @@ ClearStack:
   add  sp, x2, xzr
 
 EnableCaches:
-  // Invalidate D-Cache
-  bl   ArmInvalidateDataCache
+  // Disable D-Cache
+  bl   ASM_PFX (ArmDisableDataCache)
 
   // Enable I-Cache & D-Cache
-  bl   ASM_PFX(ArmEnableInstructionCache)
-  bl   ASM_PFX(ArmEnableDataCache)
+  bl   ASM_PFX (ArmEnableInstructionCache)
+  bl   ASM_PFX (ArmEnableDataCache)
 
 JumpToC:
   // Restore Values

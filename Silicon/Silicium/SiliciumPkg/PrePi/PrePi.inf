@@ -20,16 +20,11 @@
   AArch64/ArchPrePi.c
   AArch64/ModuleEntryPoint.S|GCC
 
-[Sources.Arm]
-  Arm/ArchPrePi.c
-  Arm/ModuleEntryPoint.S|GCC
-
 [Packages]
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
   EmbeddedPkg/EmbeddedPkg.dec
   ArmPkg/ArmPkg.dec
-  ArmPlatformPkg/ArmPlatformPkg.dec
   SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
@@ -46,36 +41,32 @@
   DebugLib
   SerialPortLib
   PlatformPrePiLib
-  DevicePrePiLib
   MemoryInitPeiLib
   PeiHobLib
   MemoryProtectionLib
 
-[Ppis]
-  gArmMpCoreInfoPpiGuid
-
 [Guids]
   gArmMpCoreInfoGuid
   gEfiFirmwarePerformanceGuid
-  gMmMemoryProtectionSettingsGuid
   gDxeMemoryProtectionSettingsGuid
+  gMmMemoryProtectionSettingsGuid
 
-[FixedPcd]
-  gArmTokenSpaceGuid.PcdVFPEnabled
-  gArmTokenSpaceGuid.PcdFdBaseAddress
-  gArmTokenSpaceGuid.PcdFdSize
-  gArmTokenSpaceGuid.PcdCpuVectorBaseAddress
-
-  gArmPlatformTokenSpaceGuid.PcdCoreCount
-
-  gEmbeddedTokenSpaceGuid.PcdPrePiCpuIoSize
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize
-
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel
+[Ppis]
+  gArmMpCoreInfoPpiGuid
 
 [Pcd]
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString
 
   gArmTokenSpaceGuid.PcdSystemMemoryBase
   gArmTokenSpaceGuid.PcdSystemMemorySize
+
+[FixedPcd]
+  gArmTokenSpaceGuid.PcdVFPEnabled
+  gArmTokenSpaceGuid.PcdFdBaseAddress
+  gArmTokenSpaceGuid.PcdFdSize
+
+  gEmbeddedTokenSpaceGuid.PcdPrePiCpuIoSize
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize
+
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel

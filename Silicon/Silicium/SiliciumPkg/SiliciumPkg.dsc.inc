@@ -8,22 +8,16 @@
 ##
 
 [BuildOptions]
-  *_CLANG*_*_CC_FLAGS = -Wno-unused-const-variable -Wno-sometimes-uninitialized -Wno-unaligned-access -Wno-deprecated-non-prototype -D CLANG
-!if $(TARGET) == DEBUG
-  *_CLANG*_*_CC_FLAGS = -D EFI_DEBUG
-!endif
+  *_CLANGPDB_*_CC_FLAGS = -Wno-unused-const-variable -Wno-sometimes-uninitialized -Wno-unaligned-access -Wno-deprecated-non-prototype -D CLANG
   *_CLANGPDB_AARCH64_CC_FLAGS = -D __DEPRECATED_AARCH64_4K_RUNTIME_GRANULARITY -D HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA=$(HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA) -D HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA=$(HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA) -D HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA=$(HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA) -D HAS_PSCI_MEMPROTECT_FAILING_ERRATA=$(HAS_PSCI_MEMPROTECT_FAILING_ERRATA)
 
 [BuildOptions.common.EDKII.SEC,BuildOptions.common.EDKII.MM_CORE_STANDALONE]
-  *_CLANGDWARF_*_DLINK_FLAGS = -z common-page-size=0x1000
   *_CLANGPDB_*_DLINK_FLAGS = /ALIGN:0x1000 /FILEALIGN:0x1000
 
 [BuildOptions.common.EDKII.DXE_CORE,BuildOptions.common.EDKII.DXE_DRIVER,BuildOptions.common.EDKII.UEFI_DRIVER,BuildOptions.common.EDKII.UEFI_APPLICATION,BuildOptions.common.EDKII.MM_CORE_STANDALONE,BuildOptions.common.EDKII.MM_STANDALONE]
-  *_CLANGDWARF_*_DLINK_FLAGS = -z common-page-size=0x1000
   *_CLANGPDB_*_DLINK_FLAGS = /ALIGN:0x1000
 
 [BuildOptions.common.EDKII.DXE_RUNTIME_DRIVER]
-  *_CLANGDWARF_*_DLINK_FLAGS = -z common-page-size=0x1000
   *_CLANGPDB_*_DLINK_FLAGS = /ALIGN:0x10000
 
 [BuildOptions.common.EDKII.MM_CORE_STANDALONE,BuildOptions.common.EDKII.MM_STANDALONE]
@@ -32,24 +26,17 @@
 [PcdsFixedAtBuild.AArch64]
   gEmbeddedTokenSpaceGuid.PcdPrePiCpuIoSize|44
 
-[PcdsFixedAtBuild.Arm]
-  gEmbeddedTokenSpaceGuid.PcdPrePiCpuIoSize|0
-
 [PcdsFixedAtBuild]
   #
   # Vendor Stuff
   #
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"3.0.6"
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"3.0.9"
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Project Silicium"
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareRevision|0x01231229
 
   #
   # ACPI
   #
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemId|"SILICI"
-  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemTableId|0x324B44454D4F4351
-  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultCreatorId|0x4D4F4351
-  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultCreatorRevision|0x00000001
 
   #
   # Print Stuff
@@ -63,15 +50,14 @@
   # Debug
   #
   gEfiMdePkgTokenSpaceGuid.PcdReportStatusCodePropertyMask|0x00
+  gEfiMdePkgTokenSpaceGuid.PcdDebugPropertyMask|0x2f
 !if $(TARGET) == DEBUG
   gEfiMdePkgTokenSpaceGuid.PcdDebugClearMemoryValue|0xAF
-  gEfiMdePkgTokenSpaceGuid.PcdDebugPropertyMask|0x2f
   gEfiMdePkgTokenSpaceGuid.PcdDebugPrintErrorLevel|0x800fee0f
   gEfiMdePkgTokenSpaceGuid.PcdPerformanceLibraryPropertyMask|1
   gEfiMdePkgTokenSpaceGuid.PcdPostCodePropertyMask|0
 !else
   gEfiMdePkgTokenSpaceGuid.PcdDebugClearMemoryValue|0x00
-  gEfiMdePkgTokenSpaceGuid.PcdDebugPropertyMask|0x00
   gEfiMdePkgTokenSpaceGuid.PcdDebugPrintErrorLevel|0x00000000
   gEfiMdePkgTokenSpaceGuid.PcdPerformanceLibraryPropertyMask|0
   gEfiMdePkgTokenSpaceGuid.PcdPostCodePropertyMask|0
@@ -82,15 +68,6 @@
   # Memory
   #
   gEfiMdeModulePkgTokenSpaceGuid.PcdResetOnMemoryTypeInformationChange|FALSE
-  gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiACPIReclaimMemory|0
-  gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiACPIMemoryNVS|0
-  gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiReservedMemoryType|0
-  gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiRuntimeServicesData|300
-  gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiRuntimeServicesCode|150
-  gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiBootServicesCode|1000
-  gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiBootServicesData|800
-  gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiLoaderCode|10
-  gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiLoaderData|0
 
   #
   # Variable Stuff
@@ -102,16 +79,24 @@
   # Boot Manager
   #
   gEfiMdePkgTokenSpaceGuid.PcdPlatformBootTimeOut|5
-  gEfiMdePkgTokenSpaceGuid.PcdDefaultTerminalType|4
-  gEfiMdeModulePkgTokenSpaceGuid.PcdBootManagerMenuFile|{ 0x50, 0xD9, 0x6E, 0xEF, 0x6C, 0x23, 0x2B, 0x4F, 0xAA, 0xAA, 0x1F, 0xEE, 0x5D, 0x8E, 0xA3, 0xBA }
+  #gEfiMdeModulePkgTokenSpaceGuid.PcdBootManagerMenuFile|{ 0x50, 0xD9, 0x6E, 0xEF, 0x6C, 0x23, 0x2B, 0x4F, 0xAA, 0xAA, 0x1F, 0xEE, 0x5D, 0x8E, 0xA3, 0xBA }
+  gEfiMdeModulePkgTokenSpaceGuid.PcdBootManagerMenuFile|{ 0x88, 0x47, 0x3D, 0x64, 0xC8, 0x63, 0xD2, 0x40, 0xBD, 0x7A, 0x68, 0x42, 0xE6, 0x68, 0x50, 0xD1 }
   gEfiMdeModulePkgTokenSpaceGuid.PcdBootManagerInBootOrder|FALSE
   gEfiMdeModulePkgTokenSpaceGuid.PcdPlatformRecoverySupport|FALSE
 
   #
   # Graphics
   #
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferDelay|10000          # In Microseconds
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferDelay|10000          # In Microseconds
+
+  #
+  # Input
+  #
   gEfiMdeModulePkgTokenSpaceGuid.PcdConInConnectOnDemand|TRUE
+
+[PcdsDynamicDefault]
+  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|0
+  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|0
 
 [PcdsFeatureFlag]
   gEfiMdePkgTokenSpaceGuid.PcdComponentNameDisable|TRUE
@@ -127,31 +112,20 @@
 
 !include MdePkg/MdeLibs.dsc.inc
 
-[LibraryClasses.Arm]
-  #
-  # ARM Libraries
-  #
-  ArmSoftFloatLib|ArmPkg/Library/ArmSoftFloatLib/ArmSoftFloatLib.inf
-
 [LibraryClasses]
   #
   # Compiler Libraries
   #
-  CompilerIntrinsicsLib|MdePkg/Library/CompilerIntrinsicsLib/ArmCompilerIntrinsicsLib.inf
-  NULL|MdePkg/Library/CompilerIntrinsicsLib/ArmCompilerIntrinsicsLib.inf
-  NULL|MdePkg/Library/BaseStackCheckLib/BaseStackCheckLib.inf
+  CompilerIntrinsicsLib|MdePkg/Library/CompilerIntrinsicsLib/CompilerIntrinsicsLib.inf
 
   #
   # ARM Libraries
   #
+  ArmMonitorLib|ArmPkg/Library/ArmMonitorLib/ArmMonitorLib.inf
   CacheMaintenanceLib|ArmPkg/Library/ArmCacheMaintenanceLib/ArmCacheMaintenanceLib.inf
   DefaultExceptionHandlerLib|ArmPkg/Library/DefaultExceptionHandlerLib/DefaultExceptionHandlerLib.inf
   CpuExceptionHandlerLib|ArmPkg/Library/ArmExceptionLib/ArmExceptionLib.inf
-  ArmDisassemblerLib|ArmPkg/Library/ArmDisassemblerLib/ArmDisassemblerLib.inf
-!if $(USE_CUSTOM_GIC) == 0
-  ArmGicLib|ArmPkg/Drivers/ArmGic/ArmGicLib.inf
-!endif
-  ArmSmcLib|ArmPkg/Library/ArmSmcLib/ArmSmcLib.inf
+  ArmSmcLib|MdePkg/Library/ArmSmcLib/ArmSmcLib.inf
 !if $(USE_CUSTOM_TIMER) == 0
 !if $(USE_PHYSICAL_TIMER) == 1
   ArmGenericTimerCounterLib|ArmPkg/Library/ArmGenericTimerPhyCounterLib/ArmGenericTimerPhyCounterLib.inf
@@ -189,7 +163,6 @@
   IoLib|MdePkg/Library/BaseIoLibIntrinsic/BaseIoLibIntrinsic.inf
   UefiDecompressLib|MdePkg/Library/BaseUefiDecompressLib/BaseUefiDecompressLib.inf
   ImagePropertiesRecordLib|MdeModulePkg/Library/ImagePropertiesRecordLib/ImagePropertiesRecordLib.inf
-  MemoryBinOverrideLib|MdeModulePkg/Library/MemoryBinOverrideLibNull/MemoryBinOverrideLibNull.inf
   UefiLib|MdePkg/Library/UefiLib/UefiLib.inf
   HobLib|MdePkg/Library/DxeHobLib/DxeHobLib.inf
   UefiRuntimeServicesTableLib|MdePkg/Library/UefiRuntimeServicesTableLib/UefiRuntimeServicesTableLib.inf
@@ -219,12 +192,12 @@
   FltUsedLib|MdePkg/Library/FltUsedLib/FltUsedLib.inf
   PcdDatabaseLoaderLib|MdeModulePkg/Library/PcdDatabaseLoaderLib/Dxe/PcdDatabaseLoaderLibDxe.inf
   ExtractGuidedSectionLib|EmbeddedPkg/Library/PrePiExtractGuidedSectionLib/PrePiExtractGuidedSectionLib.inf
+  DmaLib|EmbeddedPkg/Library/CoherentDmaLib/CoherentDmaLib.inf
+  IoMmuLib|MdeModulePkg/Library/IoMmuLib/IoMmuLib.inf
 
   #
   # Boot Manager Libraries
   #
-  DeviceBootManagerLib|SiliciumPkg/Library/DeviceBootManagerLib/DeviceBootManagerLib.inf
-  MsPlatformDevicesLib|SiliciumPkg/Library/MsPlatformDevicesLib/MsPlatformDevicesLib.inf
   MsBootOptionsLib|SiliciumPkg/Library/MsBootOptionsLib/MsBootOptionsLib.inf
   PlatformBootManagerLib|SiliciumPkg/Library/PlatformBootManagerLib/PlatformBootManagerLib.inf
   UefiBootManagerLib|MdeModulePkg/Library/UefiBootManagerLib/UefiBootManagerLib.inf
@@ -268,11 +241,10 @@
   GraphicsConsoleHelperLib|PcBdsPkg/Library/GraphicsConsoleHelperLib/GraphicsConsoleHelper.inf
   #SiliciumGraphicsLib|SiliciumPkg/Library/SiliciumGraphicsLib/SiliciumGraphicsLib.inf
 
-
   #
   # ACPI Libraries
   #
-  AslUpdateLib|SiliciumPkg/Library/DxeAslUpdateLib/DxeAslUpdateLib.inf
+  AslUpdateLib|SiliciumPkg/Library/AslUpdateLib/AslUpdateLib.inf
 
   #
   # Device Tree Libraries
@@ -309,9 +281,6 @@
   ReportStatusCodeLib|MdeModulePkg/Library/DxeReportStatusCodeLib/DxeReportStatusCodeLib.inf
 
 [LibraryClasses.common.DXE_DRIVER]
-!if $(USE_CUSTOM_GIC) == 0
-  ArmGicArchLib|ArmPkg/Library/ArmGicArchLib/ArmGicArchLib.inf
-!endif
   MemoryAllocationLib|MdePkg/Library/UefiMemoryAllocationLib/UefiMemoryAllocationLib.inf
   ReportStatusCodeLib|MdeModulePkg/Library/DxeReportStatusCodeLib/DxeReportStatusCodeLib.inf
   SecurityManagementLib|MdeModulePkg/Library/DxeSecurityManagementLib/DxeSecurityManagementLib.inf
@@ -353,7 +322,7 @@
   # Processor Core Services
   ArmPkg/Drivers/CpuDxe/CpuDxe.inf
 !if $(USE_CUSTOM_GIC) == 0
-  ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
 !endif
 !if $(USE_CUSTOM_TIMER) == 0
   ArmPkg/Drivers/TimerDxe/TimerDxe.inf
@@ -378,6 +347,8 @@
   MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
+  MdeModulePkg/Bus/Sd/EmmcDxe/EmmcDxe.inf
+  MdeModulePkg/Bus/Sd/SdDxe/SdDxe.inf
   FatPkg/EnhancedFatDxe/Fat.inf
 
   # Pci
@@ -406,7 +377,7 @@
   # BDS
   MdeModulePkg/Universal/BdsDxe/BdsDxe.inf {
     <LibraryClasses>
-!if ($(ARCH) == AARCH64) && ($(ENABLE_KEP) == 1)
+!if $(ENABLE_KEP) == 1
       NULL|SiliciumPkg/Library/KernelErrataPatcherLib/KernelErrataPatcherLib.inf
 !endif
   }

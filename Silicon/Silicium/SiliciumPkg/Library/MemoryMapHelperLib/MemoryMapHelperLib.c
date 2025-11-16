@@ -1,21 +1,23 @@
 #include <Library/MemoryMapHelperLib.h>
-#include <Library/DeviceMemoryMapLib.h>
+#include <Library/MemoryMapLib.h>
 
 EFI_STATUS
 EFIAPI
 LocateMemoryMapAreaByName (
-  CHAR8                           *MemoryMapAreaName,
-  ARM_MEMORY_REGION_DESCRIPTOR_EX *MemoryDescriptor)
+  IN  CHAR8                           *MemoryMapAreaName,
+  OUT EFI_MEMORY_REGION_DESCRIPTOR_EX *MemoryDescriptor)
 {
-  PARM_MEMORY_REGION_DESCRIPTOR_EX MemoryDescriptorEx = GetDeviceMemoryMap ();
+  // Get Memory Map
+  EFI_PMEMORY_REGION_DESCRIPTOR_EX MemoryDescriptorEx = GetMemoryMap ();
 
-  // Run through each Memory Descriptor
   while (MemoryDescriptorEx->Length != 0) {
+    // Compare Memory Region Names
     if (AsciiStriCmp (MemoryMapAreaName, MemoryDescriptorEx->Name) == 0) {
       *MemoryDescriptor = *MemoryDescriptorEx;
       return EFI_SUCCESS;
     }
 
+    // Switch to next Region
     MemoryDescriptorEx++;
   }
 
@@ -25,18 +27,20 @@ LocateMemoryMapAreaByName (
 EFI_STATUS
 EFIAPI
 LocateMemoryMapAreaByAddress (
-  EFI_PHYSICAL_ADDRESS             MemoryMapAreaAddress,
-  ARM_MEMORY_REGION_DESCRIPTOR_EX *MemoryDescriptor)
+  IN  EFI_PHYSICAL_ADDRESS             MemoryMapAreaAddress,
+  OUT EFI_MEMORY_REGION_DESCRIPTOR_EX *MemoryDescriptor)
 {
-  PARM_MEMORY_REGION_DESCRIPTOR_EX MemoryDescriptorEx = GetDeviceMemoryMap ();
+  // Get Memory Map
+  EFI_PMEMORY_REGION_DESCRIPTOR_EX MemoryDescriptorEx = GetMemoryMap ();
 
-  // Run through each Memory Descriptor
   while (MemoryDescriptorEx->Length != 0) {
+    // Compare Memory Region Addresses
     if (MemoryDescriptorEx->Address == MemoryMapAreaAddress) {
       *MemoryDescriptor = *MemoryDescriptorEx;
       return EFI_SUCCESS;
     }
 
+    // Switch to next Region
     MemoryDescriptorEx++;
   }
 

@@ -28,7 +28,7 @@
   INF Binaries/bitra/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/bitra/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
@@ -53,9 +53,6 @@
 
   INF Binaries/bitra/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
-
   INF Binaries/bitra/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
@@ -85,6 +82,8 @@
   INF Binaries/bitra/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+
   INF Binaries/bitra/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/XhciDxe/XhciDxe.inf

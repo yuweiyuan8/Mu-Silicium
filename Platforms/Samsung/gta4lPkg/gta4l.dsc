@@ -26,61 +26,42 @@
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = gta4lPkg/gta4l.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
-  HAS_BUILD_IN_KEYBOARD          = 0
-
-[BuildOptions]
-  *_*_*_CC_FLAGS = -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
-
-[LibraryClasses]
-  DeviceMemoryMapLib|gta4lPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
-  DeviceConfigurationMapLib|gta4lPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
-  DevicePrePiLib|gta4lPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000
 
-  # Device Maintainer
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"V6lhost"
-
-  # CPU Vector Address
-  gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x5FF8C000
-
   # UEFI Stack Addresses
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x5FF90000
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
+  # Device GUID
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x3E, 0x8C, 0x2E, 0xA2, 0xBE, 0xB0, 0x0E, 0x4C, 0x81, 0x92, 0x57, 0xEE, 0x0D, 0x99, 0x80, 0xEC }
+
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Samsung Electronics Co., Ltd."
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Samsung"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy Tab A7 LTE"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"gta4l"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_Tab_A7_LTE_gta4l"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy Tab A7 LTE"
 
-  # Simple FrameBuffer
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1200
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2000
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  # Simple Frame Buffer
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferWidth|1200
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferHeight|2000
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|32
+
+  # Platform Pei
+  gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0x71d00000
+  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0x71D00000
 
   # Storage
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|TRUE
-  gQcomPkgTokenSpaceGuid.PcdDeviceHasEmmc|TRUE
-  
-  # USB Controller
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
-[PcdsDynamicDefault]
-  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1200
-  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2000
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1200
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|2000
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|150
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|116
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|150
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|116
+[LibraryClasses]
+  MemoryMapLib|gta4lPkg/Library/MemoryMapLib/MemoryMapLib.inf
+  ConfigurationMapLib|gta4lPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
-!include SM6115Pkg/SM6115Pkg.dsc.inc
+!include KamortaPkg/KamortaPkg.dsc.inc

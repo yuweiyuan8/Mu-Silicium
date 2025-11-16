@@ -29,7 +29,7 @@
   INF Binaries/hotdog/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/hotdog/QcomPkg/Drivers/QcomMpmTimerDxe/QcomMpmTimerDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/hotdog/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
@@ -51,9 +51,6 @@
 
   INF Binaries/hotdog/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/hotdog/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
-
   INF Binaries/hotdog/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/hotdog/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/hotdog/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
@@ -79,6 +76,8 @@
   INF Binaries/hotdog/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/hotdog/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/hotdog/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+
   INF Binaries/hotdog/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf

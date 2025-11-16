@@ -11,7 +11,7 @@ APRIORI DXE {
 
   # Next, install cpu protocol and enable the interrupt controller
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
 
   # Core Drivers
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
@@ -30,9 +30,6 @@ APRIORI DXE {
   INF Binaries/willow/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/willow/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
   INF Binaries/willow/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
-
   INF Binaries/willow/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/willow/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
 
@@ -103,6 +100,7 @@ APRIORI DXE {
   INF Binaries/willow/QcomPkg/Drivers/CipherDxe/CipherDxe.inf
   INF Binaries/willow/QcomPkg/Drivers/RNGDxe/RngDxe.inf
   INF Binaries/willow/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
 
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
   INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf

@@ -25,7 +25,7 @@
   INF Binaries/pong/QcomPkg/Drivers/FontDxe/FontDxe.inf
   INF Binaries/pong/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/pong/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
@@ -53,9 +53,6 @@
   INF Binaries/pong/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/pong/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/pong/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
-
   INF Binaries/pong/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/pong/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/pong/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
@@ -96,6 +93,8 @@
   INF Binaries/pong/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/pong/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/pong/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+
   INF Binaries/pong/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/pong/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/pong/QcomPkg/Drivers/XhciDxe/XhciDxe.inf

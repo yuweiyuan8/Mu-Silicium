@@ -28,7 +28,7 @@
   INF Binaries/miatoll/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
   INF Binaries/miatoll/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/miatoll/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
@@ -52,9 +52,6 @@
 
   INF Binaries/miatoll/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/miatoll/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
-
   INF Binaries/miatoll/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/miatoll/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/miatoll/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
@@ -83,6 +80,8 @@
   INF Binaries/miatoll/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/miatoll/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/miatoll/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+
   INF Binaries/miatoll/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
   INF Binaries/generic/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf

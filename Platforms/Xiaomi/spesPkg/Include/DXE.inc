@@ -29,7 +29,7 @@
   INF Binaries/spes/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/spes/QcomPkg/Drivers/QcomMpmTimerDxe/QcomMpmTimerDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/spes/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
@@ -51,9 +51,6 @@
   INF Binaries/spes/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/spes/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/spes/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
-
   INF Binaries/spes/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/spes/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/spes/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
@@ -79,6 +76,8 @@
   INF Binaries/spes/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
   INF Binaries/spes/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/spes/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+
   INF Binaries/spes/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf

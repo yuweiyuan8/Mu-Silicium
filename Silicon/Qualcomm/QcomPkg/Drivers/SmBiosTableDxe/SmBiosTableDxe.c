@@ -14,13 +14,13 @@
   WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 **/
 
+#include <Library/RamPartitionTableLib.h>
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/MemoryAllocationLib.h>
 #include <Library/BaseMemoryLib.h>
 #include <Library/DebugLib.h>
 #include <Library/UefiLib.h>
 #include <Library/PrintLib.h>
-#include <Library/RamPartitionTableLib.h>
 
 #include <IndustryStandard/SmBios.h>
 
@@ -126,11 +126,6 @@ BIOSInfoUpdateSmbiosType0 ()
   AsciiSPrintUnicodeFormat (FirmwareVendor,  sizeof (FirmwareVendor),  FixedPcdGetPtr (PcdFirmwareVendor));
   AsciiSPrintUnicodeFormat (FirmwareVersion, sizeof (FirmwareVersion), FixedPcdGetPtr (PcdFirmwareVersionString));
 
-  // Append Device Maintainer
-  if (FixedPcdGetPtr (PcdDeviceMaintainer) != "Not Specified") {
-    AsciiSPrint (FirmwareVendor, sizeof (FirmwareVendor), "%a & %a", FirmwareVendor, FixedPcdGetPtr (PcdDeviceMaintainer));
-  }
-
   // Update String Table
   mBIOSInfoType0Strings[0] = FirmwareVendor;
   mBIOSInfoType0Strings[1] = FirmwareVersion;
@@ -143,6 +138,29 @@ BIOSInfoUpdateSmbiosType0 ()
 VOID
 SysInfoUpdateSmbiosType1 ()
 {
+  EFI_STATUS             Status;
+  EFI_CHIPINFO_PROTOCOL *mChipInfoProtocol;
+
+  // Update Device UUID
+  mSysInfoType1.Uuid = *(GUID *)FixedPcdGetPtr (PcdDeviceGuid);
+
+  // Locate Chip Info Protocol
+  Status = gBS->LocateProtocol (&gEfiChipInfoProtocolGuid, NULL, (VOID *)&mChipInfoProtocol);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "Failed to Locate Chip Info Protocol! Status = %r\n", Status));
+  } else {
+    CHAR8 ChipIdString[16];
+
+    // Get Chip ID String
+    Status = mChipInfoProtocol->GetChipIdString (mChipInfoProtocol, ChipIdString, 16);
+    if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "Failed to Get Chip ID String! Status = %r\n", Status));
+    } else {
+      // Update Family String
+      mSysInfoType1Strings[5] = ChipIdString;
+    }
+  }
+
   // Update String Table
   mSysInfoType1Strings[0] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosSystemManufacturer);
   mSysInfoType1Strings[1] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosSystemModel);
@@ -281,7 +299,7 @@ ProcessorInfoUpdateSmbiosType4 ()
   mProcessorInfoType4Strings[0] = (CHAR8 *)FixedPcdGetPtr (PcdSmBiosProcessorSocket);
   mProcessorInfoType4Strings[1] = (CHAR8 *)FixedPcdGetPtr (PcdSmBiosProcessorManufacturer);
   mProcessorInfoType4Strings[2] = ProcessorModel;
-  mProcessorInfoType4Strings[5] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosProcessorCodename);
+  mProcessorInfoType4Strings[5] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosProcessorPartNumber);
 
   // Register SmBios Structure
   LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mProcessorInfoType4, mProcessorInfoType4Strings, NULL);
@@ -496,11 +514,11 @@ RegisterSmBiosTables (
   IN EFI_HANDLE        ImageHandle, 
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
-  EFI_STATUS         Status            = EFI_SUCCESS;
-  RamPartitionTable *RamPartitionTable = NULL;
-  UINT32             NumPartitions     = 0;
-  UINT32             PartitionVersion  = 0;
-  UINT64             SystemMemorySize  = 0;
+  EFI_STATUS               Status            = EFI_SUCCESS;
+  EFI_RAM_PARTITION_TABLE *RamPartitionTable = NULL;
+  UINT32                   NumPartitions     = 0;
+  UINT32                   PartitionVersion  = 0;
+  UINT64                   SystemMemorySize  = 0;
 
   // Get RAM Partitions
   Status = GetRamPartitions (&RamPartitionTable, &PartitionVersion);

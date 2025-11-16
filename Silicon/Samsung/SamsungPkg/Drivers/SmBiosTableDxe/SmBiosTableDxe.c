@@ -197,11 +197,6 @@ BIOSInfoUpdateSmbiosType0 ()
   AsciiSPrintUnicodeFormat (FirmwareVendor,  sizeof (FirmwareVendor),  FixedPcdGetPtr (PcdFirmwareVendor));
   AsciiSPrintUnicodeFormat (FirmwareVersion, sizeof (FirmwareVersion), FixedPcdGetPtr (PcdFirmwareVersionString));
 
-  // Append Device Maintainer
-  if (FixedPcdGetPtr (PcdDeviceMaintainer) != "Not Specified") {
-    AsciiSPrint (FirmwareVendor, sizeof (FirmwareVendor), "%a & %a", FirmwareVendor, FixedPcdGetPtr (PcdDeviceMaintainer));
-  }
-
   // Update String Table
   mBIOSInfoType0Strings[0] = FirmwareVendor;
   mBIOSInfoType0Strings[1] = FirmwareVersion;
@@ -214,6 +209,9 @@ BIOSInfoUpdateSmbiosType0 ()
 VOID
 SysInfoUpdateSmbiosType1 ()
 {
+  // Update Device UUID
+  mSysInfoType1.Uuid = *(GUID *)FixedPcdGetPtr (PcdDeviceGuid);
+
   // Update String Table
   mSysInfoType1Strings[0] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosSystemManufacturer);
   mSysInfoType1Strings[1] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosSystemModel);
@@ -261,7 +259,7 @@ ProcessorInfoUpdateSmbiosType4 ()
   mProcessorInfoType4Strings[0] = (CHAR8 *)FixedPcdGetPtr (PcdSmBiosProcessorSocket);
   mProcessorInfoType4Strings[1] = (CHAR8 *)FixedPcdGetPtr (PcdSmBiosProcessorManufacturer);
   mProcessorInfoType4Strings[2] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosProcessorModel);
-  mProcessorInfoType4Strings[5] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosProcessorCodename);
+  mProcessorInfoType4Strings[5] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosProcessorPartNumber);
 
   // Register SmBios Structure
   LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mProcessorInfoType4, mProcessorInfoType4Strings, NULL);
@@ -449,7 +447,7 @@ RegisterSmBiosTables (
     // Get RAM Size
     MemorySize = mDdrInfoProtocol->GetRamSize ();
   } else {
-    ARM_MEMORY_REGION_DESCRIPTOR_EX FdtPointerRegion;
+    EFI_MEMORY_REGION_DESCRIPTOR_EX FdtPointerRegion;
 
     // Print Error
     DEBUG ((EFI_D_ERROR, "Failed to Locate DDR Info Protocol! Status = %r\n", Status));

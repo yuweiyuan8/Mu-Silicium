@@ -25,7 +25,7 @@
   INF Binaries/lemonade/QcomPkg/Drivers/FontDxe/FontDxe.inf
   INF Binaries/lemonade/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/lemonade/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
@@ -48,9 +48,6 @@
   INF Binaries/lemonade/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/lemonade/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/lemonade/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
-
   INF Binaries/lemonade/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/lemonade/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
 
@@ -96,6 +93,8 @@
   INF Binaries/lemonade/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/lemonade/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/lemonade/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+
   INF Binaries/lemonade/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/lemonade/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/lemonade/QcomPkg/Drivers/XhciDxe/XhciDxe.inf

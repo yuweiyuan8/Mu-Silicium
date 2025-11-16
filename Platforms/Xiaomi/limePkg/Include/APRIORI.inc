@@ -11,7 +11,7 @@ APRIORI DXE {
 
   # Next, install cpu protocol and enable the interrupt controller
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
 
   # Core Drivers
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
@@ -31,9 +31,6 @@ APRIORI DXE {
   INF Binaries/lime/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
   INF Binaries/lime/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/lime/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
-
   INF Binaries/lime/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/lime/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
 
@@ -86,9 +83,6 @@ APRIORI DXE {
   INF Binaries/lime/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
   INF Binaries/lime/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
-  INF Binaries/generic/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
-  INF Binaries/generic/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
-
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
@@ -102,8 +96,9 @@ APRIORI DXE {
   INF Binaries/lime/QcomPkg/Drivers/HashDxe/HashDxe.inf
   INF Binaries/lime/QcomPkg/Drivers/CipherDxe/CipherDxe.inf
   INF Binaries/lime/QcomPkg/Drivers/MacDxe/MacDxe.inf
-  INF Binaries/lime/QcomPkg/Drivers/RNGDxe/RngDxe.inf
+  INF Binaries/lime/QcomPkg/SocPkg/KamortaPkg/Drivers/RNGDxe/RngDxe.inf
   INF Binaries/lime/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
 
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
   INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf

@@ -29,7 +29,7 @@
   INF Binaries/tapas/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/tapas/QcomPkg/Drivers/QcomMpmTimerDxe/QcomMpmTimerDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/tapas/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
@@ -51,9 +51,6 @@
   INF Binaries/tapas/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/tapas/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/tapas/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
-
   INF Binaries/tapas/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/tapas/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/tapas/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
@@ -79,6 +76,8 @@
   INF Binaries/tapas/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
   INF Binaries/tapas/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/tapas/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+
   INF Binaries/tapas/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
   INF Binaries/generic/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf

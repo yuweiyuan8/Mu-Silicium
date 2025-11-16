@@ -27,7 +27,7 @@
   INF Binaries/nitrogen/QcomPkg/Drivers/FontDxe/FontDxe.inf
   INF Binaries/nitrogen/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/nitrogen/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
@@ -46,9 +46,6 @@
 
   INF Binaries/nitrogen/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/nitrogen/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
-
   INF Binaries/nitrogen/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/nitrogen/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
   INF Binaries/nitrogen/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
@@ -92,3 +89,5 @@
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
   
   INF Binaries/nitrogen/QcomPkg/Drivers/QdssDxe/QdssDxe.inf
+
+  INF nitrogenPkg/Drivers/TscResConfigDxe/TscResConfigDxe.inf

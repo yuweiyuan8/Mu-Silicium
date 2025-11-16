@@ -1,5 +1,4 @@
 APRIORI DXE {
-
   # First, install the PCD driver and call DxeInit
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
@@ -12,7 +11,7 @@ APRIORI DXE {
 
   # Next, install cpu protocol and enable the interrupt controller
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
 
   # Core Drivers
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
@@ -33,9 +32,6 @@ APRIORI DXE {
   INF Binaries/nabu/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
   INF Binaries/nabu/QcomPkg/Drivers/PdcDxe/PdcDxe.inf
   INF Binaries/nabu/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-	
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
-	
   INF Binaries/nabu/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/nabu/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
 

@@ -11,7 +11,7 @@ APRIORI DXE {
 
   # Next, install cpu protocol and enable the interrupt controller
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
 
   # Core Drivers
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
@@ -32,9 +32,6 @@ APRIORI DXE {
   INF Binaries/surya/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/PdcDxe/PdcDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
-
   INF Binaries/surya/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/surya/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
 
@@ -75,7 +72,6 @@ APRIORI DXE {
   INF Binaries/surya/QcomPkg/Drivers/VibratorDxe/VibratorDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
-#  INF Binaries/surya/QcomPkg/Drivers/ASN1X509Dxe/ASN1X509Dxe.inf
   INF Binaries/surya/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
@@ -95,6 +91,7 @@ APRIORI DXE {
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/surya/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
+  INF QcomPkg/Drivers/DisplayReEnablerDxe/DisplayReEnablerDxe.inf
 !else
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
@@ -104,6 +101,7 @@ APRIORI DXE {
   INF Binaries/surya/QcomPkg/Drivers/CipherDxe/CipherDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/RNGDxe/RngDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
 
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
   INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf

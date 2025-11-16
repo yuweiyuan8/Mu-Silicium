@@ -11,11 +11,11 @@
 
 [Packages]
   ArmPkg/ArmPkg.dec
-  ArmPlatformPkg/ArmPlatformPkg.dec
-  MdeModulePkg/MdeModulePkg.dec
   MdePkg/MdePkg.dec
-  QcomPkg/QcomPkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  ArmPlatformPkg/ArmPlatformPkg.dec
   SiliciumPkg/SiliciumPkg.dec
+  QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
   RamPartitionTableLib
@@ -35,7 +35,7 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor
   gQcomPkgTokenSpaceGuid.PcdForceMemorySpeed
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel
@@ -44,7 +44,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorSocket
   gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorManufacturer
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType
@@ -56,8 +56,8 @@
 [Protocols]
   gEfiSmbiosProtocolGuid
   gEfiChipInfoProtocolGuid
-  gEfiClockProtocolGuid
   gEfiDDRGetInfoProtocolGuid
+  gEfiClockProtocolGuid
   
 [Depex]
   gEfiSmbiosProtocolGuid
