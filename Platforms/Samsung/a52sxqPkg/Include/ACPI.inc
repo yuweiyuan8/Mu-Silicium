@@ -1,12 +1,12 @@
 FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
   SECTION RAW = Kodiak/APIC.aml
 # SECTION RAW = Kodiak/BERT.aml
-# SECTION RAW = Kodiak/BGRT.aml
   SECTION RAW = Kodiak/CSRT.aml
 !if $(TARGET) == DEBUG
   SECTION RAW = Kodiak/DBG2.aml
 !endif
   SECTION RAW = a52sxq/DSDT.aml
+  SECTION RAW = Common/SSDT.aml
   SECTION RAW = Kodiak/FACP.aml
 # SECTION RAW = Kodiak/FPDT.aml
   SECTION RAW = Kodiak/GTDT.aml
@@ -15,7 +15,5 @@ FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
 # SECTION RAW = Kodiak/MSDM.aml
   SECTION RAW = Kodiak/PPTT.aml
   SECTION RAW = Kodiak/SPCR.aml
-# SECTION RAW = Kodiak/TPM2.aml
-# SECTION RAW = Kodiak/XSDT.aml
   SECTION UI = "AcpiTables" 
 }

@@ -38,7 +38,7 @@
 
   # UEFI Stack Addresses
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0xA760D000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000  
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x2A, 0x7E, 0x3B, 0xFA, 0x73, 0x4F, 0x78, 0x4C, 0xBB, 0xF2, 0x1D, 0x8E, 0x29, 0x2F, 0xFB, 0xD7 }
@@ -47,7 +47,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"OnePlus"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"13"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"dodge"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"CPH2649"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"CPH2653"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"23893"
 
   # Simple Frame Buffer
@@ -57,8 +57,8 @@
 
   # Platform Pei
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
-  gQcomPkgTokenSpaceGuid.PcdDtbExtensionAddr|0xA703C0F0
-  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0xA703CE58
+  gQcomPkgTokenSpaceGuid.PcdDtbExtensionAddr|0xA703C0E8
+  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0xA703CE50
 
   # Dynamic RAM Start Address
   gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xFF300000

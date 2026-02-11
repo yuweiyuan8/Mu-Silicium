@@ -12,18 +12,27 @@
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x20000000
 
 [LibraryClasses]
-  # HOB Library
-  PlatformHobLib|SiliciumPkg/Library/PlatformHobLibNull/PlatformHobLibNull.inf
+  #
+  # ARM Libraries
+  #
+  ArmSmcLib|SamsungPkg/Library/ArmSmcLib/ArmSmcLib.inf
 
-  # Memory Pritection Library
+  #
+  # Silicium Libraries
+  #
+  PlatformHobLib|SiliciumPkg/Library/PlatformHobLibNull/PlatformHobLibNull.inf
   MemoryProtectionLib|SamsungPkg/Library/MemoryProtectionLib/MemoryProtectionLib.inf
+  ErrataPatchesLib|SamsungPkg/Library/ErrataPatchesLib/ErrataPatchesLib.inf
 
 [Components]
+  #
   # SmBios
+  #
   SamsungPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
-  # Custom Exynos Drivers
-  SamsungPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
+  #
+  # Custom Drivers
+  #
   SamsungPkg/Drivers/ChipDataDxe/ChipDataDxe.inf
   SamsungPkg/Drivers/DdrInfoDxe/DdrInfoDxe.inf
   SamsungPkg/Drivers/GpioDxe/GpioDxe.inf

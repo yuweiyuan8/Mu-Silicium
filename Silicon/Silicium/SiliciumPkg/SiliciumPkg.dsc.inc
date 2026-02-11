@@ -8,8 +8,9 @@
 ##
 
 [BuildOptions]
-  *_CLANGPDB_*_CC_FLAGS = -Wno-unused-const-variable -Wno-sometimes-uninitialized -Wno-unaligned-access -Wno-deprecated-non-prototype -D CLANG
-  *_CLANGPDB_AARCH64_CC_FLAGS = -D __DEPRECATED_AARCH64_4K_RUNTIME_GRANULARITY -D HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA=$(HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA) -D HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA=$(HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA) -D HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA=$(HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA) -D HAS_PSCI_MEMPROTECT_FAILING_ERRATA=$(HAS_PSCI_MEMPROTECT_FAILING_ERRATA)
+  DEBUG_CLANGPDB_*_CC_FLAGS = -D EFI_DEBUG
+  *_CLANGPDB_*_CC_FLAGS = -Wno-unused-const-variable -Wno-sometimes-uninitialized -Wno-unaligned-access -Wno-deprecated-non-prototype -D CLANG -D DISABLE_SECUREBOOT=$(DISABLE_SECUREBOOT)
+  *_CLANGPDB_AARCH64_CC_FLAGS = -D __DEPRECATED_AARCH64_4K_RUNTIME_GRANULARITY
 
 [BuildOptions.common.EDKII.SEC,BuildOptions.common.EDKII.MM_CORE_STANDALONE]
   *_CLANGPDB_*_DLINK_FLAGS = /ALIGN:0x1000 /FILEALIGN:0x1000
@@ -30,13 +31,26 @@
   #
   # Vendor Stuff
   #
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"3.0.9"
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"3.2"
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Project Silicium"
 
   #
   # ACPI
   #
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemId|"SILICI"
+
+  #
+  # Memory
+  #
+  gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiACPIReclaimMemory|0
+  gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiACPIMemoryNVS|0
+  gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiReservedMemoryType|0
+  gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiRuntimeServicesData|300
+  gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiRuntimeServicesCode|150
+  gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiBootServicesCode|1000
+  gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiBootServicesData|800
+  gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiLoaderCode|10
+  gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiLoaderData|0
 
   #
   # Print Stuff
@@ -94,6 +108,9 @@
   #
   gEfiMdeModulePkgTokenSpaceGuid.PcdConInConnectOnDemand|TRUE
 
+[PcdsDynamicExDefault]
+  gMsGraphicsPkgTokenSpaceGuid.PcdPostBackgroundColoringSkipCount|0
+
 [PcdsDynamicDefault]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|0
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|0
@@ -110,6 +127,7 @@
 
   gEmbeddedTokenSpaceGuid.PcdPrePiProduceMemoryTypeInformationHob|TRUE
 
+!include SiliciumPkg/SecureBoot-Keys.inc
 !include MdePkg/MdeLibs.dsc.inc
 
 [LibraryClasses]
@@ -125,7 +143,6 @@
   CacheMaintenanceLib|ArmPkg/Library/ArmCacheMaintenanceLib/ArmCacheMaintenanceLib.inf
   DefaultExceptionHandlerLib|ArmPkg/Library/DefaultExceptionHandlerLib/DefaultExceptionHandlerLib.inf
   CpuExceptionHandlerLib|ArmPkg/Library/ArmExceptionLib/ArmExceptionLib.inf
-  ArmSmcLib|MdePkg/Library/ArmSmcLib/ArmSmcLib.inf
 !if $(USE_CUSTOM_TIMER) == 0
 !if $(USE_PHYSICAL_TIMER) == 1
   ArmGenericTimerCounterLib|ArmPkg/Library/ArmGenericTimerPhyCounterLib/ArmGenericTimerPhyCounterLib.inf
@@ -210,18 +227,46 @@
   # Security Libraries
   #
   SafeIntLib|MdePkg/Library/BaseSafeIntLib/BaseSafeIntLib.inf
+!if $(DISABLE_SECUREBOOT) == 0
+  AuthVariableLib|SecurityPkg/Library/AuthVariableLib/AuthVariableLib.inf
+!else
   AuthVariableLib|MdeModulePkg/Library/AuthVariableLibNull/AuthVariableLibNull.inf
-  SecureBootVariableLib|SecurityPkg/Library/SecureBootVariableLib/SecureBootVariableLib.inf
+!endif
   PasswordPolicyLib|OemPkg/Library/PasswordPolicyLib/PasswordPolicyLib.inf
-  SecureBootKeyStoreLib|MsCorePkg/Library/SecureBootKeyStoreLibNull/SecureBootKeyStoreLibNull.inf
-  PlatformPKProtectionLib|SecurityPkg/Library/PlatformPKProtectionLibVarPolicy/PlatformPKProtectionLibVarPolicy.inf
-  MuSecureBootKeySelectorLib|MsCorePkg/Library/MuSecureBootKeySelectorLib/MuSecureBootKeySelectorLib.inf
   MemoryTypeInformationChangeLib|MsCorePkg/Library/MemoryTypeInformationChangeLib/MemoryTypeInformationChangeLib.inf
   DxeMemoryProtectionHobLib|MdeModulePkg/Library/MemoryProtectionHobLib/DxeMemoryProtectionHobLib.inf
   VariableFlashInfoLib|MdeModulePkg/Library/BaseVariableFlashInfoLib/BaseVariableFlashInfoLib.inf
   MemoryTypeInfoSecVarCheckLib|MdeModulePkg/Library/MemoryTypeInfoSecVarCheckLib/MemoryTypeInfoSecVarCheckLib.inf
   SecurityLockAuditLib|MdeModulePkg/Library/SecurityLockAuditDebugMessageLib/SecurityLockAuditDebugMessageLib.inf
   TpmMeasurementLib|MdeModulePkg/Library/TpmMeasurementLibNull/TpmMeasurementLibNull.inf
+!if $(DISABLE_SECUREBOOT) == 0
+  PlatformSecureLib|SecurityPkg/Library/PlatformSecureLibNull/PlatformSecureLibNull.inf
+!endif
+
+  #
+  # Secure Boot Libraries
+  #
+  SecureBootVariableLib|SecurityPkg/Library/SecureBootVariableLib/SecureBootVariableLib.inf
+!if $(DISABLE_SECUREBOOT) == 0
+  SecureBootKeyStoreLib|MsCorePkg/Library/BaseSecureBootKeyStoreLib/BaseSecureBootKeyStoreLib.inf
+!else
+  SecureBootKeyStoreLib|MsCorePkg/Library/SecureBootKeyStoreLibNull/SecureBootKeyStoreLibNull.inf
+!endif
+  PlatformPKProtectionLib|SecurityPkg/Library/PlatformPKProtectionLibVarPolicy/PlatformPKProtectionLibVarPolicy.inf
+  MuSecureBootKeySelectorLib|MsCorePkg/Library/MuSecureBootKeySelectorLib/MuSecureBootKeySelectorLib.inf
+
+!if $(DISABLE_SECUREBOOT) == 0
+  #
+  # Crypto Libraries
+  #
+  OpensslLib|OpensslPkg/Library/OpensslLib/OpensslLib.inf
+  IntrinsicLib|OpensslPkg/Library/IntrinsicLib/IntrinsicLib.inf
+
+  #
+  # RNG Libraries
+  #
+  RngLib|SiliciumPkg/Library/DxeRngLib/DxeRngLib.inf
+!endif
 
   #
   # Storage Libraries
@@ -249,7 +294,7 @@
   #
   # Device Tree Libraries
   #
-  FdtLib|EmbeddedPkg/Library/FdtLib/FdtLib.inf
+  FdtLib|MdePkg/Library/BaseFdtLib/BaseFdtLib.inf
   DtPlatformDtbLoaderLib|EmbeddedPkg/Library/DxeDtPlatformDtbLoaderLibDefault/DxeDtPlatformDtbLoaderLibDefault.inf
 
   #
@@ -294,12 +339,10 @@
   ReportStatusCodeLib|MdeModulePkg/Library/DxeReportStatusCodeLib/DxeReportStatusCodeLib.inf
 
 [LibraryClasses.common.DXE_RUNTIME_DRIVER]
+  BaseCryptLib|OpensslPkg/Library/BaseCryptLib/RuntimeCryptLib.inf
   MemoryAllocationLib|MdePkg/Library/UefiMemoryAllocationLib/UefiMemoryAllocationLib.inf
   ReportStatusCodeLib|MdeModulePkg/Library/DxeReportStatusCodeLib/DxeReportStatusCodeLib.inf
   VariablePolicyLib|MdeModulePkg/Library/VariablePolicyLib/VariablePolicyLibRuntimeDxe.inf
-
-[LibraryClasses.common.DXE_DRIVER, LibraryClasses.common.UEFI_DRIVER, LibraryClasses.common.UEFI_APPLICATION, LibraryClasses.common.DXE_CORE]
-  BaseCryptLib|CryptoPkg/Library/BaseCryptLibNull/BaseCryptLibNull.inf
 
 [Components]
   # PrePi
@@ -351,14 +394,9 @@
   MdeModulePkg/Bus/Sd/SdDxe/SdDxe.inf
   FatPkg/EnhancedFatDxe/Fat.inf
 
-  # Pci
-  MdeModulePkg/Bus/Pci/XhciDxe/XhciDxe.inf   # USB 3.*
-  MdeModulePkg/Bus/Pci/EhciDxe/EhciDxe.inf   # USB 2.*
-
   # USB
   MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
-  MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
   MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
   # ACPI
@@ -377,9 +415,7 @@
   # BDS
   MdeModulePkg/Universal/BdsDxe/BdsDxe.inf {
     <LibraryClasses>
-!if $(ENABLE_KEP) == 1
       NULL|SiliciumPkg/Library/KernelErrataPatcherLib/KernelErrataPatcherLib.inf
-!endif
   }
   PcBdsPkg/MsBootPolicy/MsBootPolicy.inf
   MdeModulePkg/Universal/PrintDxe/PrintDxe.inf

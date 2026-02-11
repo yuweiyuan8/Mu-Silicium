@@ -7,6 +7,13 @@
 
   INF SiliciumPkg/Drivers/MsButtonServiceDxe/MsButtonServiceDxe.inf
 
+!if $(DISABLE_SECURITY) == 0
+  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdCustomSiPolicyGuid) {
+    SECTION RAW = SiliciumPkg/Include/Resources/SecureBoot/SiPolicy.p7b
+    SECTION UI = "SiPolicy.p7b"
+  }
+!endif
+
   FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdLogoFile) {
     SECTION RAW = SiliciumPkg/Include/Resources/BootLogo.bmp
     SECTION UI = "Boot Logo"
@@ -17,17 +24,7 @@
     SECTION UI = "No Operating System"
   }
 
-  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdMsdDefaultFile) {
-    SECTION RAW = SiliciumPkg/Include/Resources/MassStorage_Default.bmp
-    SECTION UI = "Mass Storage Default"
-  }
-
-  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdMsdConnectedFile) {
-    SECTION RAW = SiliciumPkg/Include/Resources/MassStorage_Connected.bmp
-    SECTION UI = "Mass Storage Connected"
-  }
-
-  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdMsdDisconnectedFile) {
-    SECTION RAW = SiliciumPkg/Include/Resources/MassStorage_Disconnected.bmp
-    SECTION UI = "Mass Storage Disconnected"
+  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdMassStorageFile) {
+    SECTION RAW = SiliciumPkg/Include/Resources/MassStorage.bmp
+    SECTION UI = "Mass Storage"
   }

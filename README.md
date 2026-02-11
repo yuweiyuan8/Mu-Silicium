@@ -1,4 +1,4 @@
-# Project Silicium UEFI for ARM-Based Devices
+# Project Silicium UEFI for ARM64-Based Devices
 
 <!-- ![Banner](https://github.com/Project-Silicium/Mu-Silicium/blob/main/Resources/Pictures/Banner.png) -->
 
@@ -38,5 +38,5 @@ We made some Guides that Explain How to Port your Device that are Referenced in 
 
 ## License
 
-All code except drivers in `GPLDrivers` & `GPLApplications` & `GPLLibrary` directorys are licensed under BSD-2-Clause. <br />
+All code except drivers in `GPLDrivers` & `GPLApplications` & `GPLLibrary` directories are licensed under BSD-2-Clause. <br />
 GPL Drivers are licensed under `GPLv2` or later license.

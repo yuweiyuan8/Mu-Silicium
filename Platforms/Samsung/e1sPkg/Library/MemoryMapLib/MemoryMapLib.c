@@ -9,12 +9,10 @@ gMemoryRegionDescriptorEx[] = {
   {"RAM Partition",      0x80000000, 0x0FFFF000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
   {"Kaslr",              0x8FFFF000, 0x00001000, AddMem, SYS_MEM, UNCACHEABLE, Reserv, WRITE_BACK},
   {"ECT",                0x90000000, 0x000C4000, AddMem, SYS_MEM, UNCACHEABLE, Reserv, WRITE_BACK},
-  {"RAM Partition",      0x93EC4000, 0x0000C000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
-  {"FDT Pointer",        0x93ED0000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
-  {"RAM Partition",      0x93ED1000, 0x22A2F000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
+  {"RAM Partition",      0x93EC4000, 0x22A3C000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
 
   // Memory Hole: 0xB6900000 -> 0xC0000000 (0x09700000) [Secure DRAM]
-  // Memory Hole: 0xC0000000 -> 0xC0400000 (0x00400000) [H-ARX]
+  // Memory Hole: 0xC0000000 -> 0xC0400000 (0x00400000) [H-Arx]
 
   {"RAM Partition",      0xC0400000, 0x01000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
   {"EL2 Code",           0xC1400000, 0x00200000, AddMem, SYS_MEM, SYS_MEM_CAP, BsCode, WRITE_BACK},
@@ -39,8 +37,10 @@ gMemoryRegionDescriptorEx[] = {
   {"RAM Partition",      0xFABA4000, 0x0385C000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
   {"EL2 Earlymem",       0xFE400000, 0x01C00000, AddMem, SYS_MEM, UNCACHEABLE, Reserv, WRITE_BACK},
 
-  // Register Regions
+  // Non-Secure iRAM Regions
   {"DDR Info",           0x02038000, 0x00050000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
+
+  // Register Regions
   {"Chip Info",          0x10000000, 0x00010000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
   {"Watchdog Timer",     0x10040000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
   {"Gic Distributor",    0x10200000, 0x00010000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},

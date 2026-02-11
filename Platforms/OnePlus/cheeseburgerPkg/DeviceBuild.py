@@ -39,6 +39,7 @@ class CommonPlatform ():
         "Silicon/Arm/Mu_Tiano",
         "Silicon/Qualcomm",
         "Silicon/Silicium",
+        "Silicium-ACPI",
         "Silicium-ACPI/Platforms/OnePlus",
         "Silicium-ACPI/SoCs/Qualcomm"
     )
@@ -67,6 +68,7 @@ class SettingsManager (UpdateSettingsManager, SetupSettingsManager, PrEvalSettin
             RequiredSubmodule ("Mu_Basecore", True),
             RequiredSubmodule ("Silicon/Arm/Mu_Tiano", True),
             RequiredSubmodule ("Silicium-ACPI", True),
+            RequiredSubmodule ("Silicon/Silicium/OpensslPkg/Library/OpensslLib/openssl", True)
         ]
 
     def SetArchitectures (self, list_of_requested_architectures):
@@ -160,6 +162,7 @@ class PlatformBuilder (UefiBuilder, BuildSettingsManager):
         self.env.SetValue ("BUILDREPORT_TYPES", "PCD DEPEX FLASH BUILD_FLAGS LIBRARY FIXED_ADDRESS HASH", "Setting build report types")
         self.env.SetValue ("BLD_*_MEMORY_PROTECTION", "TRUE", "Default")
         self.env.SetValue ("BLD_*_SHIP_MODE", "FALSE", "Default")
+        self.env.SetValue ("BLD_*_DISABLE_SECUREBOOT", self.env.GetValue("DISABLE_SECUREBOOT"), "Default")
         self.env.SetValue ("BLD_*_FD_BASE", self.env.GetValue("FD_BASE"), "Default")
         self.env.SetValue ("BLD_*_FD_SIZE", self.env.GetValue("FD_SIZE"), "Default")
         self.env.SetValue ("BLD_*_FD_BLOCKS", self.env.GetValue("FD_BLOCKS"), "Default")
